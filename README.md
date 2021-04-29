@@ -8,4 +8,4 @@ https://www.hashicorp.com/certification/terraform-associate
 
 ```aws ec2 describe-images --region eu-north-1 --owners amazon --filters  "Name=virtualization-type,Values=hvm"```
 
-You should check `OwnerId` and `Name` of the image
+You should check `OwnerId` and `Name` of the found image

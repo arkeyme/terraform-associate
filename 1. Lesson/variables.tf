@@ -15,6 +15,14 @@ variable "key_name" {
 }
 
 
+variable "github_token" {
+  description = ""
+}
+
+variable "github_owner" {
+  description = ""
+}
+
 variable "aws_region" {
   description = ""
   default = "eu-north-1"
