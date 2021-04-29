@@ -18,8 +18,8 @@ terraform {
 }
 
 provider "github" {
-  token = "${var.github_token}"
-  owner = "${var.github_owner}"
+  token = var.github_token
+  owner = var.github_owner
 }
 
 provider "aws" {
@@ -51,4 +51,11 @@ output "ami_id" {
 resource "aws_instance" "web" {
   ami = data.aws_ami.amazon.id
   instance_type = var.instance_type
+}
+
+resource "github_repository" "example-12345" {
+  name        = "example-12345"
+  description = "My awesome codebase"
+  visibility = "public"
+  gitignore_template = "Terraform"
 }
