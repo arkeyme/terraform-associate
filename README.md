@@ -1,6 +1,7 @@
 # Preparation for HashiCorp Infrastructure Automation Certification
 
 https://www.hashicorp.com/certification/terraform-associate
+https://www.youtube.com/watch?v=3WQMSQBUBuQ
 
 ## How to find AMIs
 
