@@ -59,3 +59,4 @@ resource "github_repository" "example-12345" {
   visibility = "public"
   gitignore_template = "Terraform"
 }
+

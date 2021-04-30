@@ -35,6 +35,9 @@ owners = ["137112412989"]
 
 }
 
+output "ami_id" {
+  value = data.aws_ami.amazon.id
+}
 
 resource "aws_instance" "web" {
   ami = data.aws_ami.amazon.id
@@ -42,5 +45,9 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_eip" "eip1" {
+  instance = aws_instance.web.id
 }
 
+output "public_ip" {
+  value = aws_eip.eip1.public_ip
+}
