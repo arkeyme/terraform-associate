@@ -56,34 +56,23 @@ output "public_ip" {
   value = join("", [aws_eip.eip1.public_ip, "/32"])
 }
 
-resource "aws_security_group" "sg-1" {
-  name = "sg1"
-
-  ingress {
-    description = "SSH from VPC"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [join("", [aws_eip.eip1.public_ip, "/32"])]
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  tags = {
-    Name = "allow_tls"
-  }
-}
-
 resource "aws_instance" "web1" {
+  count         = 1
   instance_type = var.types[var.aws_region]
   ami           = data.aws_ami.amazon.id
-
+  tags = {
+    Name = join("-", ["Host", count.index])
+  }
 }
 
+resource "aws_iam_user" "user" {
+  count = length(var.loadbalancers)
+  name  = var.loadbalancers[count.index]
+  path  = "/system/"
+}
 
+resource "aws_iam_user" "user2" {
+  count = 6
+  name = "user-${count.index}"
+  path = "/system/"
+}
