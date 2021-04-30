@@ -80,4 +80,7 @@ resource "aws_security_group" "sg-1" {
   }
 }
 
-
+resource "aws_instance" "web1" {
+  instance_type = var.types[var.aws_region]
+  ami = data.aws_ami.amazon.id
+}

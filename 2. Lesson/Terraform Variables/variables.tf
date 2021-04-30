@@ -19,3 +19,14 @@ variable "aws_region" {
   description = ""
   default     = "eu-north-1"
 }
+
+variable "types" {
+  type = map
+  default = {
+    us-east-1 = "t2.micro"
+    us-west-2 = "t2.nano"
+    eu-north-1 = "t2.small"
+   }
+  
+}
+
