@@ -41,10 +41,14 @@ variable "istest" {
 }
 
 locals {
+  name_prefix = var.name != "" ? var.name : var.default
+}
+
+locals {
   common_tags = {
     Owner = "DevOps team"
     service = "backend"
-    Name = "Host"
+    Name = local.name_prefix
   }
 }
 
@@ -55,7 +59,6 @@ resource "aws_instance" "dev" {
   # Если переменная var.istest равно True то значение count становится 1, иначе 0
   tags = local.common_tags
 }
-
 
 resource "aws_instance" "prod" {
   ami           = data.aws_ami.amazon.id

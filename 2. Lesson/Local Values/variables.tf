@@ -8,6 +8,13 @@ variable "instance_name" {
   default     = "Wordpress"
 }
 
+variable "name" {
+  default = "Host"
+}
+
+variable "default" {
+  default = "Host"
+}
 
 variable "key_name" {
   description = ""
