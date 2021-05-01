@@ -1,19 +1,22 @@
 variable "instance_type" {
-  description = ""
-  default     = "t3.micro"
+  description = "Instance type"
+  default = "t2.micro"
 }
 
-variable "instance_name" {
-  description = ""
-  default     = "Wordpress"
+variable "aws_region" {
+  description = "Region"
+  default     = "eu-north-1"
 }
 
 
-variable "key_name" {
-  description = ""
-  default     = "EC2_Tutor"
+variable "elb_name" {
+  default = "elb1"
 }
 
+# variable "az" {
+#   type = list
+#   default = ["us-west-2a", "us-west-2b", "us-west-2c"]
+# }
 
 variable "aws_region" {
   description = ""
