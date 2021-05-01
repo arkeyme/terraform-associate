@@ -2,7 +2,7 @@
 
 [Link](https://www.terraform.io/docs/language/values/locals.html)
 
-```
+```hcl
 # Если var.name не пустое, то name_prefix принимает значение var.name, иначе var.default (опеределено в variables.tf)
 locals {
   name_prefix = var.name != "" ? var.name : var.default
