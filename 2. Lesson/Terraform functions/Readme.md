@@ -31,7 +31,7 @@ variable "tags" {
 
 ## lookup
 This is select `ami` from variable `ami` by `var.aws_region`
-```
+```hcl
 output "ami" {
   value = lookup(var.ami,var.aws_region)
 }
