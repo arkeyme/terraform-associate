@@ -70,7 +70,7 @@ resource "aws_instance" "prod" {
 
 resource "aws_instance" "devprod" {
   ami           = data.aws_ami.amazon.id
-  instance_type =  var.istest == true ? "t3.nano" : "t3.micro"
+  instance_type = var.istest == true ? "t3.nano" : "t3.micro"
   # Если переменная var.istest равно True то значение instance_type становится "t2.micro", иначе "t2.large"
   tags = local.common_tags
 }
