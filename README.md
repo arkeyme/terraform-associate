@@ -36,6 +36,8 @@ Notice that `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are different then a
 
 # Terraform workspaces
 
+[link to the documentation](https://www.terraform.io/docs/language/state/workspaces.html#when-to-use-multiple-workspaces)
+
 To create workspace, after creation new created WS became selected:
 
 ```
@@ -54,7 +56,7 @@ To select needed workspace:
 aws-vault exec mainUser -- terraform workspace select default
 ```
 
-Notice that terraform apply will create changes in different WS isolatevly. It possible by creating new state file in our S3 storage for workspace stage:
+Notice that terraform apply will create changes in different WS isolatevly. It possible by creating new state file in our S3 storage for workspace `stage`:
 
 ```
 terra-back-1339/env:/stage/cert-lesson-2/cert-lesson-2/
