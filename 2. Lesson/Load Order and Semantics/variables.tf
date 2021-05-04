@@ -20,15 +20,6 @@ variable "aws_region" {
   default     = "eu-north-1"
 }
 
-variable "types" {
-  type = map(any)
-  default = {
-    us-east-1  = "t2.micro"
-    us-west-2  = "t2.nano"
-    eu-north-1 = "t3.small"
-  }
-}
-
 variable "instance_types" {
   type = map(any)
   default = {
@@ -37,8 +28,14 @@ variable "instance_types" {
   }
 }
 
+
 variable "loadbalancers" {
   type    = list(any)
   default = ["dev-lb", "prod-lb", "stage-lb", "poo-lb"]
 
+}
+
+variable "istest" {
+  type    = bool
+  default = true
 }

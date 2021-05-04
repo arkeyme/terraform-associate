@@ -15,3 +15,7 @@ terraform plan
 ```
 
 There is new file `debug.log` will be created.
+
+to validete terraform file:
+
+```terraform validate```
