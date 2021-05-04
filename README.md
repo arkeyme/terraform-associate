@@ -62,4 +62,16 @@ Notice that terraform apply will create changes in different WS isolatevly. It p
 terra-back-1339/env:/stage/cert-lesson-2/cert-lesson-2/
 ```
 
+## Saving terraform plan to the separated file
+
+[link](https://www.terraform.io/docs/cli/commands/plan.html#out-path)
+
+`-out=path` - The path to save the generated execution plan. This plan can then be used with terraform apply to be certain that only the changes shown in this plan are applied. Read the warning on saved plans below.
+
+
+```
+terraform plan -out demoplan
+terraform apply "demoplan"
+```
+
 
