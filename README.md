@@ -74,4 +74,36 @@ terraform plan -out demoplan
 terraform apply "demoplan"
 ```
 
+## Terraform outputs
 
+List of all outputs:   
+```
+terraform output
+```
+Export specific output:
+```
+terraform output dev_ip
+```
+
+## Terrafrom configuration:
+
+```hcl
+terraform {
+  required_version = "> 0.12.0" # The version of terraform executable
+  # backend settings:
+  backend "s3" {
+    bucket         = "terra-back-1339"
+    key            = "cert-lesson-2/terraform.tfstate"
+    region         = "eu-north-1"
+    dynamodb_table = "terraform_lock"
+  }
+  # required provider block and version required:
+  required_providers {  
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+}
+
+```
