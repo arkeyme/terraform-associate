@@ -31,7 +31,7 @@ variable "types" {
 }
 
 variable "loadbalancers" {
-  type = list
-  default = ["dev-lb","prod-lb","stage-lb", "poo-lb"]
-   
+  type    = list(any)
+  default = ["dev-lb", "prod-lb", "stage-lb", "poo-lb"]
+
 }

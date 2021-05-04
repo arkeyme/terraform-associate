@@ -36,26 +36,26 @@ data "aws_ami" "amazon" {
 }
 
 variable "istest" {
-  type = bool
-  default = true 
+  type    = bool
+  default = true
 }
 
 resource "aws_instance" "dev" {
   ami           = data.aws_ami.amazon.id
   instance_type = "t2.micro"
-  count = var.istest == true ? 1 : 0
+  count         = var.istest == true ? 1 : 0
   # Если переменная var.istest равно True то значение count становится 1, иначе 0
 }
 
 resource "aws_instance" "prod" {
   ami           = data.aws_ami.amazon.id
   instance_type = "t2.large"
-  count = var.istest != true ? 1 : 0
+  count         = var.istest != true ? 1 : 0
   # Если переменная var.istest не равно True то значение count становится 1, иначе 0
 }
 
 resource "aws_instance" "devprod" {
   ami           = data.aws_ami.amazon.id
-  instance_type =  var.istest == true ? "t2.micro" : "t2.large"
+  instance_type = var.istest == true ? "t2.micro" : "t2.large"
   # Если переменная var.istest равно True то значение instance_type становится "t2.micro", иначе "t2.large"
 }

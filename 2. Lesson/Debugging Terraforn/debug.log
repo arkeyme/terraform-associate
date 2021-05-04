@@ -475,3 +475,13 @@ X-Amzn-Requestid: DQDALU86OOFBO9NN2EUBMFSQINVV4KQNSO5AEMVJF66Q9ASUAAJG
 
 -----------------------------------------------------
 2021-05-04T12:43:02.775+0300 [DEBUG] [aws-sdk-go] {}
+2021-05-04T12:46:20.051+0300 [DEBUG] Adding temp file log sink: C:\Users\itaskaev\AppData\Local\Temp\terraform-log009745851
+2021-05-04T12:46:20.078+0300 [INFO]  Terraform version: 0.15.1
+2021-05-04T12:46:20.078+0300 [INFO]  Go runtime version: go1.16.2
+2021-05-04T12:46:20.078+0300 [INFO]  CLI args: []string{"C:\\ProgramData\\chocolatey\\lib\\terraform\\tools\\terraform.exe", "fmt"}
+2021-05-04T12:46:20.081+0300 [DEBUG] Attempting to open CLI config file: C:\Users\itaskaev\AppData\Roaming\terraform.rc
+2021-05-04T12:46:20.081+0300 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2021-05-04T12:46:20.083+0300 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2021-05-04T12:46:20.083+0300 [DEBUG] ignoring non-existing provider search directory C:\Users\itaskaev\AppData\Roaming\terraform.d\plugins
+2021-05-04T12:46:20.084+0300 [DEBUG] ignoring non-existing provider search directory C:\Users\itaskaev\AppData\Roaming\HashiCorp\Terraform\plugins
+2021-05-04T12:46:20.084+0300 [INFO]  CLI command args: []string{"fmt"}
