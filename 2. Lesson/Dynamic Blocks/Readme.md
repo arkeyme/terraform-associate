@@ -29,7 +29,7 @@ resource "aws_security_group" "sg4" {
 
 ```
 
-Let's add iterator option, which means that iterator is the port itself:
+For better reading let's add `iterator` option, which means that `iterator` is the `port` itself:
 
 ```hcl
 resource "aws_security_group" "sg4" {
