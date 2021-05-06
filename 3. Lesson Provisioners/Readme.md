@@ -1,9 +1,9 @@
-resource "aws_instance" "myec2" {
-  ami           = data.aws_ami.amazon.id
-  instance_type = "t3.micro"
-  key_name      = var.key_name
+# Terraform provisioners
 
-  provisioner "remote-exec" {
+Remote provisioner:
+
+```hcl
+provisioner "remote-exec" {
     inline = [
       "sudo amazon-linux-extras install -y nginx1",
       "sudo systemctl start nginx"
@@ -16,15 +16,13 @@ resource "aws_instance" "myec2" {
     private_key = file("./EC2_Tutor-eu-north-1")
   }
   }
-
+```
+Local Provisioners:
+```hcl
   provisioner "local-exec" {
     command = "echo ${self.private_ip} > private_ips.txt"
   }
     provisioner "local-exec" {
     command = "echo ${self.public_ip} >> private_ips.txt"
   }
-}
-
-output "ip" {
-  value = aws_instance.myec2.public_ip
-}
+```

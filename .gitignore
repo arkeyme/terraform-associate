@@ -31,3 +31,4 @@ override.tf.json
 # example: *tfplan*
 
 EC2_Tutor-eu-north-1
+3. Lesson Provisioners/private_ips.txt
