@@ -36,22 +36,22 @@ data "aws_ami" "amazon" {
 }
 
 variable "istest" {
-  type = bool
-  default = true 
+  type    = bool
+  default = true
 }
 
 
 resource "aws_instance" "ins1" {
-  ami = data.aws_ami.amazon.id
+  ami           = data.aws_ami.amazon.id
   instance_type = var.istest == true ? "t3.nano" : "t3.micro"
-  count = 6
+  count         = 6
   tags = {
     Name = element(var.tags, count.index)
   }
 }
 
 output "ami" {
-  value = lookup(var.ami,var.aws_region)
+  value = lookup(var.ami, var.aws_region)
 }
 
 output "timestamp" {
@@ -60,9 +60,27 @@ output "timestamp" {
 
 
 data "aws_availability_zones" "azs" {
-    state = "available"
+  state = "available"
 }
 
 output "azs" {
   value = data.aws_availability_zones.azs.names
 }
+
+resource "aws_iam_user" "lb" {
+  name = "iamuser.${count.index}"
+  count = 3
+  path = "/system/"
+}
+
+output "arns" {
+  value = aws_iam_user.lb[*].arn
+}
+
+output "names" {
+  value = aws_iam_user.lb[*].name
+}
+
+# output "zipmap" {
+#   value = aws_iam_user.lb[*].name
+# }
