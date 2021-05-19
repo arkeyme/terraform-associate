@@ -25,4 +25,25 @@ resource "aws_eip" "eip2" {
 }
 ```
 
+## Sensitive parameters:
 
+```hcl
+output "db_password" {
+  value       = aws_db_instance.db.password
+  description = "The password for logging in to the database."
+  sensitive   = true
+}
+```
+
+```hcl
+locals {
+  db_password = {
+      admin = "password"
+  }
+}
+
+output "db_password" {
+  value = local.db_password
+  sensitive = true
+}
+```
